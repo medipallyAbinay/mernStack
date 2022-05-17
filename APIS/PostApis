@@ -1,8 +1,9 @@
 const express=require('express');
 
 const postApi=express.Router();
-
+//to extract body of request objects
 postApi.use(express.json())
+postApi.use(express.urlencoded())
 
 //importing expressAsyncHandler
 const expressAsyncHandler=require('express-async-handler');
