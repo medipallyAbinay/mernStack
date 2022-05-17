@@ -7,7 +7,16 @@ postApi.use(express.json())
 //importing expressAsyncHandler
 const expressAsyncHandler=require('express-async-handler');
 
-
+//configuring cloudinary
+var cloudinary=require('cloudinary')
+const { CloudinaryStorage } = require('multer-storage-cloudinary')
+const multer=require('multer');
+cloudinary.config({
+    cloud_name:'dgh5ihi0u',
+    apt_key:459953436539166,
+    api_secret:'7btjDyxPlK1AtgBn2Cty538b7YI',
+    secure:true
+})
 
 //creating a middleware to send all available posts
 postApi.get('/all-posts',expressAsyncHandler(async (request,response)=>{
