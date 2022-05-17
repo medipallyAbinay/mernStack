@@ -1,0 +1,14 @@
+{
+  "name": "backendsocialmedia",
+  "version": "1.0.0",
+  "description": "SocialMedia Backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Medipally Abinay",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

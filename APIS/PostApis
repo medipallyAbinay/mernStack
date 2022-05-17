@@ -1,0 +1,45 @@
+const express=require('express');
+
+const postApi=express.Router();
+
+postApi.use(express.json())
+
+//importing expressAsyncHandler
+const expressAsyncHandler=require('express-async-handler');
+
+
+
+//creating a middleware to send all available posts
+postApi.get('/all-posts',expressAsyncHandler(async (request,response)=>{
+    let postsCollection=request.app.get("postCollection")
+    let posts=await postsCollection.find().toArray()
+    response.send({message:"ALL POSTS",payload:posts});
+}))
+
+//handling post request
+
+postApi.post('/add-post',expressAsyncHandler(async (request,response)=>{
+    let postsCollection=request.app.get("postCollection")
+    let newPost=request.body;
+    await postsCollection.insertOne(newPost);
+    response.send("Post added succesfully");
+}))
+
+//handling delete request
+
+postApi.delete('/delete-post/:id',expressAsyncHandler(async (request,response)=>{
+    let postId=+(request.params.id)
+    let postsCollection=request.app.get("postCollection")
+    await postsCollection.deleteOne({postID:postId})
+    response.send({message:`post with ${postId} is deleted`})
+}))
+
+//handling update request
+
+postApi.put('/update-post',expressAsyncHandler(async (request,response)=>{
+    let ModifiedObject=request.body
+    let postsCollection=request.app.get("postCollection")
+    await postsCollection.updateOne({postID:ModifiedObject.postID},{$set:{...ModifiedObject}})
+    response.send({message:"post updated successfully"})
+}))
+module.exports=postApi;

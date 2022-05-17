@@ -1,0 +1,24 @@
+###
+GET http://localhost:8080/posts/all-posts 
+
+###
+POST http://localhost:8080/posts/add-post
+Content-Type: application/json
+
+{
+    "postID":1,
+    "Name":"Abhinay"
+}
+
+
+###
+DELETE http://localhost:8080/posts/delete-post/1
+
+###
+PUT http://localhost:8080/posts/update-post
+Content-Type: application/json
+
+{
+    "postID":1,
+    "Name":"srihitha"
+}
