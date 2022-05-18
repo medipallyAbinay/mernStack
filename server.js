@@ -18,8 +18,10 @@ mongoclient.connect(DBURL)
     //posts is a collection in the database retrive it
     const databaseObject=client.db("socialMediaDb");
     let postsCollection=databaseObject.collection("posts");
+    let userCollection=databaseObject.collection("users");
     //setting collection object
     app.set("postCollection",postsCollection);
+    app.set("userCollection",userCollection);
 })
 .catch(()=>{
     console.log("failed to connect dababase to the application")
@@ -31,6 +33,9 @@ app.use(exp.json())
 const postApis=require('./APIS/PostApis');
 app.use('/posts',postApis);
 
+//importing userApis
+const userApis=require('./APIS/userApis');
+app.use('/users',userApis);
 
 //Middleware to handle errors
 app.use((error,request,response,next)=>{
