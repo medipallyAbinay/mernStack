@@ -1,4 +1,3 @@
-const { response } = require('express');
 const exp=require('express');
 const app=exp();
 
@@ -34,7 +33,7 @@ const postApis=require('./APIS/PostApis');
 app.use('/posts',postApis);
 
 //importing userApis
-const userApis=require('./APIS/userApis');
+const userApis=require('./APIS/UserApis');
 app.use('/users',userApis);
 
 //Middleware to handle errors

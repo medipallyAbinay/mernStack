@@ -13,7 +13,7 @@ const expressAsyncHandler=require('express-async-handler');
 var cloudinary=require('cloudinary')
 const { CloudinaryStorage } = require('multer-storage-cloudinary')
 const multer=require('multer');
-const userApi = require("./userApis");
+// const userApi = require("./userApis");
 const { json } = require("express/lib/response");
 cloudinary.config({
     cloud_name:'dgh5ihi0u',

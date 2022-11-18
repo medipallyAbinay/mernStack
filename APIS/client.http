@@ -1,5 +1,8 @@
 ###
-GET http://localhost:8080/posts/all-posts 
+GET http://localhost:8080/users/all-users
+
+###
+GET http://localhost:8080/posts/all-posts
 
 ###
 POST http://localhost:8080/posts/add-post
@@ -20,5 +23,5 @@ Content-Type: application/json
 
 {
     "postID":1,
-    "Name":"srihitha"
+    "Name":"pavan"
 }
